@@ -90,37 +90,35 @@ public class YatziServiceImpl implements YatziService {
 	private int processScore(int d1, int d2, int d3, int d4, int d5, String rule) {
 		if (RuleEnum.CHANCE.getRule().equals(rule)) {
 			return Yatzy.chance(d1, d2, d3, d4, d5);
-		}if (RuleEnum.YATZY.getRule().equals(rule)) {
+		}
+		if (RuleEnum.YATZY.getRule().equals(rule)) {
 			return Yatzy.yatzy(d1, d2, d3, d4, d5);
 		} else if (RuleEnum.ONES.getRule().equals(rule)) {
-			return Yatzy.ones(d1, d2, d3, d4, d5);
+			return Yatzy.ones_twos_threes_fours_fives_sixes(d1, d2, d3, d4, d5, 1);
 		} else if (RuleEnum.TWOS.getRule().equals(rule)) {
-			return Yatzy.twos(d1, d2, d3, d4, d5);
+			return Yatzy.ones_twos_threes_fours_fives_sixes(d1, d2, d3, d4, d5, 2);
 		} else if (RuleEnum.THREES.getRule().equals(rule)) {
-			return Yatzy.threes(d1, d2, d3, d4, d5);
+			return Yatzy.ones_twos_threes_fours_fives_sixes(d1, d2, d3, d4, d5, 3);
 		} else if (RuleEnum.PAIR.getRule().equals(rule)) {
 			return Yatzy.score_pair(d1, d2, d3, d4, d5);
 		} else if (RuleEnum.TWO_PAIRS.getRule().equals(rule)) {
-			return Yatzy.two_pair(d1, d2, d3, d4, d5);
+			return Yatzy.two_pair_three_four_of_a_kind(d1, d2, d3, d4, d5, 2);
 		} else if (RuleEnum.THREE_OF_KIND.getRule().equals(rule)) {
-			return Yatzy.three_of_a_kind(d1, d2, d3, d4, d5);
+			return Yatzy.two_pair_three_four_of_a_kind(d1, d2, d3, d4, d5, 3);
 		} else if (RuleEnum.FOUR_OF_KIND.getRule().equals(rule)) {
-			return Yatzy.four_of_a_kind(d1, d2, d3, d4, d5);
+			return Yatzy.two_pair_three_four_of_a_kind(d1, d2, d3, d4, d5, 4);
 		} else if (RuleEnum.SMALL_STRAIGHT.getRule().equals(rule)) {
 			return Yatzy.smallStraight(d1, d2, d3, d4, d5);
 		} else if (RuleEnum.LARGE_STRAIGHT.getRule().equals(rule)) {
 			return Yatzy.largeStraight(d1, d2, d3, d4, d5);
 		} else if (RuleEnum.FULL_HOUSE.getRule().equals(rule)) {
 			return Yatzy.fullHouse(d1, d2, d3, d4, d5);
-		} else {
-			Yatzy yatzy = new Yatzy(d1, d2, d3, d4, d5);
-			if (RuleEnum.FOURS.getRule().equals(rule)) {
-				return yatzy.fours();
-			} else if (RuleEnum.FIVES.getRule().equals(rule)) {
-				return yatzy.fives();
-			} else if (RuleEnum.SIXES.getRule().equals(rule)) {
-				return yatzy.sixes();
-			}
+		} else if (RuleEnum.FOURS.getRule().equals(rule)) {
+			return Yatzy.ones_twos_threes_fours_fives_sixes(d1, d2, d3, d4, d5, 4);
+		} else if (RuleEnum.FIVES.getRule().equals(rule)) {
+			return Yatzy.ones_twos_threes_fours_fives_sixes(d1, d2, d3, d4, d5, 5);
+		} else if (RuleEnum.SIXES.getRule().equals(rule)) {
+			return Yatzy.ones_twos_threes_fours_fives_sixes(d1, d2, d3, d4, d5, 6);
 		}
 		return 0;
 	}

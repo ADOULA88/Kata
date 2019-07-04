@@ -110,6 +110,5 @@ public class YatziServiceImplTest {
 		String person = "person1";
 		yatziServiceImpl.calculateScoreByRule(sideNumber, rule, person);
 	}
-
 }
 
